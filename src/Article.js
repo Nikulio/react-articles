@@ -4,7 +4,8 @@ export default class Article extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			isOpen: true
+			isOpen: true,
+			isCommentsOpen: true
 		}
 		// this.toggleOpen = this.toggleOpen.bind(this) - alternative to arrow bind
 	}
@@ -15,6 +16,12 @@ export default class Article extends Component {
 		})
 	};
 
+	toggleCommentsOpen = () => {
+		this.setState({
+			isCommentsOpen: !this.state.isCommentsOpen
+		})
+	};
+
 	getBody = () => {
 		if (!this.state.isOpen) return null;
 		const {article} = this.props;
@@ -22,16 +29,35 @@ export default class Article extends Component {
 
 	};
 
+	getComments = () => {
+		if (!this.state.isCommentsOpen) return null;
+		const {article} = this.props;
+		const test = ['asdsadasdas', 'asdsdasdasdasd', 'asdsadsdasdasd']
+		const comments = test.map(
+			(item) => <li>{item}</li>
+		);
+		return (
+			<section className="comments">
+				<ul>
+					{comments}
+				</ul>
+			</section>
+		)
+	};
+
 	render() {
 		const {article} = this.props;
 		const {isOpen} = this.state;
+		const {isCommentsOpen} = this.state;
 		return (
 			<div>
 				<h3 className="title">{article.title}</h3>
 				<button onClick={this.toggleOpen}>
-					{isOpen ? 'close':'open'}
+					{isOpen.isOpen ? 'close' : 'open'}
 				</button>
 				{this.getBody()}
+				<button onClick={this.toggleCommentsOpen}>{isCommentsOpen.isCommentsOpen ? 'close' : 'open'}</button>
+				{this.getComments()}
 			</div>
 		)
 	}

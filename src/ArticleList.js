@@ -10,4 +10,4 @@ export default function ArticleList({articles}) {
 	)
 }
 
-//TODO: Make comments list. Show only when text is shown
+//TODO: Make comments list. Show only when text is shown.
