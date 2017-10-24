@@ -1,20 +1,10 @@
 import React, {Component} from 'react'
 
-// export default function Article(props) {
-// 	const {article} = props;
-// 	return (
-// 		<div>
-// 			<h3 className="title">{article.title}</h3>
-// 			<section className="text">{article.text}</section>
-// 		</div>
-// 	)
-// }
-
 export default class Article extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			isOpen: false
+			isOpen: true
 		}
 		// this.toggleOpen = this.toggleOpen.bind(this) - alternative to arrow bind
 	}
