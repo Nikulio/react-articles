@@ -21,7 +21,6 @@ class ArticleList extends Component {
 					toggleOpen={toggleOpenItem(article.id)}
 				/>
 			</li>);
-
 		return (
 			<ul>
 				{articleElements}

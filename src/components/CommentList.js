@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import Comment from './Comment'
 import toggleOpen from '../decorators/toggleOpen'
 
+
 function getBody({comments, isOpen}) {
 	if (!isOpen) return null;
 
