@@ -12,6 +12,7 @@ class Article extends Component {
 		})
 	};
 
+
 	getBody = () => {
 		const {article, isOpen} = this.props;
 		if (!isOpen) return null;
@@ -23,10 +24,19 @@ class Article extends Component {
 		)
 	};
 
+	componentWillReceiveProps(nextProps) {
+		console.log(this.props.isOpen, nextProps.isOpen)
+	}
+
+	componentWillMount() {
+		// debugger
+	}
+
+
 	render() {
 		const {article, isOpen, toggleOpen} = this.props;
 		return (
-			<div>
+			<div ref={this.setContRef}>
 				<h3 className="title">{article.title}</h3>
 				<button onClick={toggleOpen}>
 					{isOpen ? 'close' : 'open'}
@@ -36,6 +46,16 @@ class Article extends Component {
 			</div>
 		)
 	}
+
+	setContRef = (ref) => {
+		this.container = ref;
+		console.log(ref)
+	};
+
+	componentDidMount() {
+		// debugger
+	}
+
 }
 
-export default toggleOpen(Article)
+export default Article
