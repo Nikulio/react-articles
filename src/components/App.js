@@ -13,11 +13,11 @@ class App extends Component {
 	state = {
 		selection: null,
 
-	}
+	};
 
 	changeSelection = (selection) => {
 		this.setState({selection})
-	}
+	};
 
 	render() {
 		const options = this.props.articles.map(article => ({
