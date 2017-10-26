@@ -2,11 +2,13 @@ import React, {Component} from 'react'
 
 export default (OriginalComponent) => class Accordion extends Component {
 
-	state = {
-		openItemId: null,
-		//TODO : Another state for Comments component.
-		comments : null
-	};
+	constructor(props) {
+		super(props);
+		this.state = {
+			openItemId: props.defaultOpenId,
+		};
+	}
+
 
 	toggleOpenItem = openItemId => ev => {
 		this.setState({

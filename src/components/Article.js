@@ -45,8 +45,11 @@ class Article extends PureComponent {
 				</button>
 				<CSSTransitionGroup
 					transitionName='article'
+					transitionAppear
 					transitionEnterTimeout={300}
+					transitionAppearTimeout={500}
 					transitionLeaveTimeout={500}
+					component = 'div'
 
 				>
 					{this.getBody()}
