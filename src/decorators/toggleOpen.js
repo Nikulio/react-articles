@@ -4,6 +4,18 @@ export default (OriginalComponent) => class WrappedComponent extends ReactCompon
 	state = {
 		isOpen: true
 	};
+	
+	componentDidMount() {
+		console.log('mounting')
+	}
+	
+	componentDidUpdate() {
+		console.log('updating')
+	}
+
+	componentWillUnmount() {
+		console.log('unmounting')
+	}
 
 	toggleOpen = (ev) => {
 		ev && ev.preventDefault && ev.preventDefault();
