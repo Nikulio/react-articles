@@ -4,6 +4,7 @@ import ArticleList from './ArticleList'
 import UserForm from './UserForm'
 import Select from 'react-select'
 import 'react-select/dist/react-select.css'
+import DayPicker from './DayPicker'
 
 class App extends Component {
 	static propTypes = {
@@ -20,15 +21,17 @@ class App extends Component {
 	};
 
 	render() {
-		const {articles} = this.props
+		const {articles, handleDayClick} = this.props;
+		const {from, to} = this.state
 		const options = this.props.articles.map(article => ({
 			label: article.title,
 			value: article.id
-		}))
+		}));
 
 		return (
-			<div>
+			<div className="ml-auto col-10">
 				<UserForm/>
+				<DayPicker/>
 				<Select options={options} value={this.state.selection} onChange={this.changeSelection} multi/>
 				<ArticleList articles={articles} defaultOpenId={articles[0].id}/>
 			</div>

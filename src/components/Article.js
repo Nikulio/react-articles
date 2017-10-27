@@ -36,7 +36,6 @@ class Article extends PureComponent {
 
 	render() {
 		const {article, isOpen, toggleOpen} = this.props;
-		console.log('update article')
 		return (
 			<div ref={this.setContRef}>
 				<h3 className="title">{article.title}</h3>
@@ -50,7 +49,6 @@ class Article extends PureComponent {
 					transitionAppearTimeout={500}
 					transitionLeaveTimeout={500}
 					component = 'div'
-
 				>
 					{this.getBody()}
 				</CSSTransitionGroup>
