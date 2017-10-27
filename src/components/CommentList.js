@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import Comment from './Comment'
 import toggleOpen from '../decorators/toggleOpen'
+import AddComment from './AddComment'
 
 
 function getBody({comments, isOpen}) {
@@ -17,10 +18,15 @@ function getBody({comments, isOpen}) {
 function CommentList({comments = [], isOpen, toggleOpen}) {
 	const text = isOpen ? 'hide comments' : 'show comments';
 	return (
-		<div className="comments">
-			<button onClick={toggleOpen}>{text}</button>
-			{getBody({comments, isOpen})}
+		<div className="commentsBlock">
+			<div className="comments">
+				<button onClick={toggleOpen}>{text}</button>
+				{getBody({comments, isOpen})}
+			</div>
+			<AddComment/>
+
 		</div>
+
 	)
 }
 

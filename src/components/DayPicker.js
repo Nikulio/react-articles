@@ -35,7 +35,10 @@ class Picker extends Component {
 					onDayClick={this.handleDayClick}
 					fixedWeeks
 				/>
-				<a href="#" onClick={this.handleResetClick}>Reset days</a>
+				<div href="#"
+				     className="btn btn-danger"
+				     onClick={this.handleResetClick}>Reset days
+				</div>
 			</div>
 		)
 	}
