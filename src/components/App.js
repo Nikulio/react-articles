@@ -11,7 +11,7 @@ import Counter from './Counter'
 
 class App extends Component {
 	static propTypes = {
-		articles: PropTypes.array.isRequired
+		articles: PropTypes.array
 	};
 
 	state = {
@@ -24,20 +24,21 @@ class App extends Component {
 	};
 
 	render() {
-		const {articles, handleDayClick} = this.props;
+		const {handleDayClick} = this.props;
 		const {from, to} = this.state
-		const options = this.props.articles.map(article => ({
-			label: article.title,
-			value: article.id
-		}));
+		//TODO: Fix options
+		// const options = this.props.articles.map(article => ({
+		// 	label: article.title,
+		// 	value: article.id
+		// }));
 
 		return (
 			<div className="ml-auto col-10">
 				<Counter/>
 				<UserForm/>
 				<DayPicker/>
-				<Select options={options} value={this.state.selection} onChange={this.changeSelection} multi/>
-				<ArticleList articles={articles} defaultOpenId={articles[0].id}/>
+				{/*<Select options={options} value={this.state.selection} onChange={this.changeSelection} multi/>*/}
+				<ArticleList/>
 			</div>
 		)
 	}

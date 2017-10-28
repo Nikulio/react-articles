@@ -4,6 +4,8 @@ import PropTypes from 'prop-types'
 import {CSSTransitionGroup} from 'react-transition-group'
 import './style.css'
 import AddComment from '../AddComment'
+import {connect} from 'react-redux';
+import {deleteArticle} from '../../AC';
 
 
 class Article extends PureComponent {
@@ -28,14 +30,16 @@ class Article extends PureComponent {
 				{article.text}
 				<button onClick={() => this.setState({updateIndex: this.state.updateIndex + 1})}>Push me</button>
 				<CommentList comments={article.comments} ref={this.setCommentRef} key={this.state.updateIndex}/>
-				<AddComment />
+				<AddComment/>
 			</section>
 		)
 	};
 
-	// shouldComponentUpdate(nextProps, nextState) {
-	// 	return nextProps.isOpen  !== this.props.isOpen;
-	// }
+	handleDelete = () => {
+		const {deleteArticle, article} = this.props;
+		deleteArticle(article.id)
+		console.log('voooid')
+	}
 
 	render() {
 		const {article, isOpen, toggleOpen} = this.props;
@@ -45,13 +49,14 @@ class Article extends PureComponent {
 				<button onClick={toggleOpen}>
 					{isOpen ? 'close' : 'open'}
 				</button>
+				<button onClick={this.handleDelete}>delete me</button>
 				<CSSTransitionGroup
 					transitionName='article'
 					transitionAppear
 					transitionEnterTimeout={300}
 					transitionAppearTimeout={500}
 					transitionLeaveTimeout={500}
-					component = 'div'
+					component='div'
 				>
 					{this.getBody()}
 				</CSSTransitionGroup>
@@ -65,10 +70,10 @@ class Article extends PureComponent {
 		// console.log(ref)
 	};
 
-	 setCommentRef = (ref) => {
+	setCommentRef = (ref) => {
 		// console.log(ref)
 	};
 
 }
 
-export default Article
+export default connect(null, {deleteArticle})(Article)
