@@ -2,71 +2,57 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import './AddCommentStyle.css'
 
+const limits = {
+	user: {
+		min: 5,
+		max: 15
+	},
+	text: {
+		min: 20,
+		max: 50
+	}
+}
 
 class AddComment extends Component {
 	propTypes = {};
 	defaultProps = {};
 
 	state = {
-		username: '',
-		usernameError: false,
-		textError: false,
+		user: '',
 		text: ''
-	};
+	}
 
-	handelLoginChange = ev => {
-
-
-		if (ev.target.value.length < 5 || ev.target.value.length > 15) {
-			this.setState({
-				usernameError: true
-			})
-		}
-		else {
-			this.setState({
-				usernameError: false
-			})
-		}
+	handleChange = type => ev => {
+		const {value} = ev.target; 
+		console.log(value < limits[type].max);
+		console.log(limits[type].max)
+		if (value.length > limits[type].max) return;
 		this.setState({
-			username: ev.target.value
+			[type]: value
 		})
 	}
 
-	handelCommentChange = ev => {
-		if (ev.target.value.length < 20 || ev.target.value.length > 50) {
-			this.setState({
-				textError: true
-			})
-		}
-		else {
-			this.setState({
-				textError: false
-			})
-		}
-		this.setState({
-			text: ev.target.value
-		})
-	}
+
+	getClassName = type => this.state[type].length && this.state[type].length < limits[type].min ? 'error' : '';
 
 
 	render() {
-		const namePlaceholder = 'Type your name';
-		const textPlaceholder = 'Type your comment';
 		return (
-			<div className="addComment">
-				<div className="userName">
-					<input type="text" className={this.state.usernameError ? 'error' : ''} placeholder={namePlaceholder}
-					       onChange={this.handelLoginChange} value={this.state.username}/>
-				</div>
-				<div className="userText">
-					<textarea type="text" className={this.state.textError ? 'error' : ''} placeholder={textPlaceholder}
-					       onChange={this.handelCommentChange} value={this.state.text}/>
-				</div>
-				<div className="submit">
-					<a className="btn btn-success" href="#">Submit</a>
-				</div>
+			<div className="form">
+				<input
+					type="text"
+					value={this.state.user}
+					onChange={this.handleChange('user')}
+					className={this.getClassName('user')}
+				/>
+				<textarea
+					type="text"
+					value={this.state.text}
+					onChange={this.handleChange('text')}
+					className={this.getClassName('text')}
+				/>
 			</div>
-		);
+		)
 	}
 }
 
