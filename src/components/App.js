@@ -1,10 +1,13 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import ArticleList from './ArticleList'
+
 import UserForm from './UserForm'
+import DayPicker from './DayPicker'
 import Select from 'react-select'
 import 'react-select/dist/react-select.css'
-import DayPicker from './DayPicker'
+
+import Counter from './Counter'
 
 class App extends Component {
 	static propTypes = {
@@ -30,6 +33,7 @@ class App extends Component {
 
 		return (
 			<div className="ml-auto col-10">
+				<Counter/>
 				<UserForm/>
 				<DayPicker/>
 				<Select options={options} value={this.state.selection} onChange={this.changeSelection} multi/>

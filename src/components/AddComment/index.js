@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import './AddCommentStyle.css'
+import './style.css'
 
 const limits = {
 	user: {
@@ -14,8 +14,6 @@ const limits = {
 }
 
 class AddComment extends Component {
-	propTypes = {};
-	defaultProps = {};
 
 	state = {
 		user: '',
@@ -23,7 +21,7 @@ class AddComment extends Component {
 	}
 
 	handleChange = type => ev => {
-		const {value} = ev.target; 
+		const {value} = ev.target;
 		console.log(value < limits[type].max);
 		console.log(limits[type].max)
 		if (value.length > limits[type].max) return;

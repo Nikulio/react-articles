@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 
 class UserForm extends Component {
 
-	propTypes = {}
-
 	state = {
 		username: ''
 	}

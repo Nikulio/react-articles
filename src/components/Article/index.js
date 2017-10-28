@@ -1,8 +1,10 @@
 import React, {Component, PureComponent} from 'react'
-import CommentList from './CommentList'
+import CommentList from '../CommentList'
 import PropTypes from 'prop-types'
 import {CSSTransitionGroup} from 'react-transition-group'
-import './Article.css'
+import './style.css'
+import AddComment from '../AddComment'
+
 
 class Article extends PureComponent {
 
@@ -26,6 +28,7 @@ class Article extends PureComponent {
 				{article.text}
 				<button onClick={() => this.setState({updateIndex: this.state.updateIndex + 1})}>Push me</button>
 				<CommentList comments={article.comments} ref={this.setCommentRef} key={this.state.updateIndex}/>
+				<AddComment />
 			</section>
 		)
 	};
@@ -62,7 +65,7 @@ class Article extends PureComponent {
 		// console.log(ref)
 	};
 
-	setCommentRef = (ref) => {
+	 setCommentRef = (ref) => {
 		// console.log(ref)
 	};
 
