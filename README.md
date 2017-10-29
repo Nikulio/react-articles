@@ -1,1 +1,2 @@
-Basic react app
+React/Redux articles app, that have some features es commenting, deleting them. Improving everyday. Pro developers also may noticed good CSS support.
+For try the app (don't do it) by yourself go with **clone**, **npm install** and **npm start**
