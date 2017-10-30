@@ -9,7 +9,7 @@ class SelectDropdown extends Component {
 	propTypes = {};
 	defaultProps = {};
 
-	state = { 
+	state = {
 		selection: null,
 	};
 

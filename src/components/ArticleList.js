@@ -34,6 +34,5 @@ class ArticleList extends Component {
 }
 
 
-export default connect(state => ({
-	articles: state.articles
-}))(accordion(ArticleList))
+export default connect(state => ({articles: state.articles}))
+(accordion(ArticleList))

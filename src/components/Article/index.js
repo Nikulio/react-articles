@@ -38,8 +38,7 @@ class Article extends PureComponent {
 	handleDelete = () => {
 		const {deleteArticle, article} = this.props;
 		deleteArticle(article.id)
-		console.log('voooid')
-	}
+	};
 
 	render() {
 		const {article, isOpen, toggleOpen} = this.props;

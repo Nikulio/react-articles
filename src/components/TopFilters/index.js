@@ -6,8 +6,6 @@ import DayPicker from '../DayPicker'
 import Select from '../SelectDropdown'
 
 class TopFilters extends Component {
-	propTypes = {};
-	defaultProps = {};
 
 	render() {
 		return (
